@@ -26,3 +26,71 @@ body,
     #999 30px
   );
 }
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-window {
+  width: 520px;
+
+  background: #cfc4a1;
+
+  border: 3px solid #1e1e1e;
+
+  box-shadow:
+    4px 4px 0 #8c8c8c,
+    8px 8px 0 #1e1e1e;
+}
+
+.title-bar {
+  height: 34px;
+
+  border-bottom: 3px solid #1e1e1e;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 14px;
+
+  background: #d5c7aa;
+}
+
+.window-content {
+  padding: 50px 30px;
+  text-align: center;
+
+  font-family: "Press Start 2P", monospace;
+}
+
+.window-content p {
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.cat-img {
+  width: 90px;
+  image-rendering: pixelated;
+
+  margin-bottom: 35px;
+}
+
+.ok-btn {
+  width: 180px;
+  height: 60px;
+
+  font-family: "Press Start 2P", monospace;
+  font-size: 24px;
+
+  background: #d4c7b3;
+
+  border: 3px solid #8f5c57;
+
+  cursor: pointer;
+}
