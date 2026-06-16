@@ -14,7 +14,7 @@ return (
       <div className="window-content">
       <p>You have received a cat.</p>
       <img src="/cat.png" alt="cat" className="cat-img" />
-      <button className="ok-btn" onClick={() => setShowPopup(false)}>OK</button>
+      <button className="ok-btn" onClick={()  => setShowPopup(false)}>OK</button>
       </div>
       </div>
     </div>
