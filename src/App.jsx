@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import catImage from "./cat.png";
 
@@ -7,8 +7,50 @@ export default function App() {
   const [showCat, setShowCat] = useState(false);
   const [catPos, setCatPos] = useState({ x: 0, y: 0 });
 
-  const [penColor, setPenColor] = useState("#000000");
+  const [penColor, setPenColor] = useState("#303634");
   const [showColors, setShowColors] = useState(false);
+
+  const canvasRef = useRef(null);
+  const isDrawing = useRef(false);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const ctx = canvas.getContext("2d");
+
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+    ctx.strokeStyle = penColor;
+  }, []);
+
+  const startDrawing = (e) => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    isDrawing.current = true;
+
+    ctx.beginPath();
+    ctx.moveTo(e.clientX, e.clientY);
+  };
+
+  const draw = (e) => {
+    if (!isDrawing.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+
+    ctx.strokeStyle = penColor;
+
+    ctx.lineTo(e.clientX, e.clientY);
+    ctx.stroke();
+  };
+
+  const stopDrawing = () => {
+    isDrawing.current = false;
+  };
 
   const receiveCat = () => {
     setShowPopup(false);
@@ -23,6 +65,14 @@ export default function App() {
 
   return (
     <div id="paper">
+      <canvas
+        ref={canvasRef}
+        id="drawingCanvas"
+        onMouseDown={startDrawing}
+        onMouseMove={draw}
+        onMouseUp={stopDrawing}
+        onMouseLeave={stopDrawing}
+      />
 
       <div className="toolbar">
         <button
@@ -84,8 +134,6 @@ export default function App() {
           </div>
         )}
       </div>
-
-      <canvas id="drawingCanvas"></canvas>
 
       {showPopup && (
         <div className="overlay">
