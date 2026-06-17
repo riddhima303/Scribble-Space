@@ -118,10 +118,50 @@ body,
 
   padding: 10px;
 }
+.toolbar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 3000;
+}
 
-.screen-cat {
-  width: 90px;
-  display: block;
+.color-btn {
+  width: 42px;
+  height: 42px;
 
-  image-rendering: pixelated;
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.current-color {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+.color-palette {
+  position: absolute;
+  bottom: 55px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: white;
+  padding: 8px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.palette-color {
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
 }
