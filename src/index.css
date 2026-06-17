@@ -38,7 +38,7 @@ body,
 .cat-window {
   width: 520px;
 
-  background: #cfc4a1;
+  background: #FFFFFF;
 
   border: 3px solid #1e1e1e;
 
@@ -59,7 +59,7 @@ body,
   font-family: "Press Start 2P", monospace;
   font-size: 14px;
 
-  background: #d5c7aa;
+  background: #e0dbd1;
 }
 
 .window-content {
@@ -88,7 +88,7 @@ body,
   font-family: "Press Start 2P", monospace;
   font-size: 24px;
 
-  background: #d4c7b3;
+  background:  #e0dbd1;;
 
   border: 3px solid #8f5c57;
 
