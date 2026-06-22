@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import "./App.css";
 import catImage from "./cat.png";
+import eraserImage from "./rest.png";
+import penImage from "./working.png";
 
 export default function App() {
 const [showPopup, setShowPopup]=useState(true);
@@ -55,6 +57,12 @@ setCatPos({
 });
 setShowCat(true);
 };
+const clearCanvas = () => {
+  const canvas = canvasRef.current;
+  const ctx = canvas.getContext("2d");
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+}
 return ( <div id="paper"> <canvas ref={canvasRef} id="drawingCanvas"
     onMouseDown={startDrawing}
     onMouseMove={draw}
@@ -75,8 +83,11 @@ return ( <div id="paper"> <canvas ref={canvasRef} id="drawingCanvas"
         <button className="palette-color" style={{ backgroundColor: "#CF4A4B" }} onClick={() => {setPenColor("#CF4A4B");setShowColors(false);}}/>
       </div>
     )}
-    <button className="eraser-btn" onClick={() => setIsEraser(!isEraser)}>{isEraser ? "" : "⚪️"}</button>
+
+    <button className="eraser-btn" onClick={() => setIsEraser(!isEraser)}>{isEraser ? <img src={penImage} alt="Pen" /> : <img src={eraserImage} alt="Eraser" />}</button>
+    <button className="tool-btn" onClick={clearCanvas}><img src="./clear.png" alt="Clear" className="clear-cover"/></button>
   </div>
+
   {showPopup && (
     <div className="overlay">
     <div className="cat-window">
@@ -94,6 +105,7 @@ return ( <div id="paper"> <canvas ref={canvasRef} id="drawingCanvas"
   {showCat && (
     <img src={catImage} alt="cat" className="screen-cat" style={{left: `${catPos.x}px`, top: `${catPos.y}px`}} />
   )}
+  
 </div>
 );
 }
