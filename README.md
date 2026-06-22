@@ -1,5 +1,4 @@
-Scribble-Space
-# Scribble-Space 🐱✏️
+# Scribble-Space 
 
 Scribble-Space is a playful pixel-art drawing application built with React. Users can draw freely on a graph-paper canvas, choose different pen colors, erase sketches, and interact with a cute cat companion.
 
